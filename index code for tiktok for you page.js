@@ -24,7 +24,7 @@ async function scrape() {
   await page.goto(url, { waitUntil: 'networkidle2' });
   await page.waitForNavigation()
   await page.screenshot({ path: `screenshot/screenshot_${new Date().getTime()}.png`, fullPage: true });
-  const count = await page.$$eval(`div[class*="DivVideoFeedV2"] `, els => els.length);
+  const count = await page.$$eval(`div[class*="DivOneColumnContainer"]  [class*="DivItemContainer"] `, els => els.length);
 
 console.log(count);
 if (count) {
